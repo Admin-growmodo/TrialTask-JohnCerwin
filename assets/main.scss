@@ -1,0 +1,206 @@
+@import 'bootstrap/functions';
+@import 'bootstrap/variables';
+@import 'bootstrap/breakpoints';
+
+:root{
+    --white: #fff;
+    --black: #000;
+    --red: #f61a30;
+    --navy-blue: #0c1524;
+    --light-blue: #a1afc9;
+
+    --line-height: 1.25rem;
+    
+    --small-content: .875rem;
+
+    --regular-content: 16px;
+    --regular-content-md: 18px;
+    
+    --header1-desktop: 36px;
+    --header1-tablet: 30px;
+    --header1-mobile: 24px;
+
+    --header5-desktop: 20px;
+    --header5-tablet: 18px;
+    --header5-mobile: 16px;
+
+    --btn-link-fontsize: 18px;
+    --btn-link-letterspace: .1em;
+
+    /* separator */
+    --width: 100%;
+    --height: 25px;
+    --height-mobile: 20px;
+    --top-color: var(--white);
+    --bottom-color: var(--navy-blue);
+
+    body{
+        color: var(--white);
+        background-color: var(--navy-blue);
+    }
+}
+
+.heading{
+    h1{
+        font-size: var(--header1-mobile);
+        font-weight: 700;
+        @include media-breakpoint-up(sm) {
+            font-size: var(--header1-tablet);
+        }
+        @include media-breakpoint-up(md) {
+            font-size: var(--header1-desktop);
+        }
+    }
+    p{
+        font-size: var(--regular-content);
+    }
+}
+
+.two-column{
+    .piano-video{
+        max-width: 322px;
+        margin: 0 auto;
+        @include media-breakpoint-up(sm) {
+            max-width: 483px;
+        }
+    }
+    .column{
+        ul{
+            list-style-type: none;
+            margin: 0 25px;
+            @include media-breakpoint-up(sm) {
+                width: 328px;
+                margin: 0 auto;
+            }
+            @include media-breakpoint-up(lg) {
+                width: 368px;
+            }
+        }
+        li{
+            position: relative;
+            padding-left: 0;
+            @include media-breakpoint-up(sm) {
+                padding-left: 20px;
+            }
+            h5{
+                font-size: var(--header5-mobile);
+                font-weight: 800;
+                @include media-breakpoint-up(md) {
+                    font-size: var(--header5-tablet);
+                }
+                @include media-breakpoint-up(lg) {
+                    font-size: var(--header5-desktop);
+                }
+            }
+            p{
+                font-size: var(--regular-content);
+                @include media-breakpoint-up(md) {
+                    font-size: var(--small-content);
+                    line-height: var(--line-height);
+                }
+            }
+        }
+        li:before{
+            content: '';
+            width: 24px;
+            height: 24px;
+            background-repeat: no-repeat;
+            background-size: 24px;
+            display: block;
+            position: absolute;
+            left: -50px;
+            top: 3px;
+            @include media-breakpoint-up(sm) {
+                width: 40px;
+                height: 40px;
+                background-size: 40px;
+            }
+        }
+        li:nth-child(1):before{
+            background-image: url('https://www.musora.com/musora-cdn/image/https://d2vyvo0tyx8ig5.cloudfront.net/sales/2023/songs-icon.svg');
+        }
+        li:nth-child(2):before{
+            background-image: url('https://www.musora.com/musora-cdn/image/https://d2vyvo0tyx8ig5.cloudfront.net/sales/2023/tempo-icons.svg');
+        }
+        li:nth-child(3):before{
+            background-image: url('https://www.musora.com/musora-cdn/image/https://d2vyvo0tyx8ig5.cloudfront.net/sales/2023/loop-icons.svg');
+        }
+        li:nth-child(4):before{
+            background-image: url('https://www.musora.com/musora-cdn/image/https://d2vyvo0tyx8ig5.cloudfront.net/sales/2023/timing-icons.svg');
+            background-size: 17px;
+            width: 17px;
+            @include media-breakpoint-up(sm) {
+                background-size: 29px;
+                width: 29px;
+            }
+        }
+        li:nth-child(5):before{
+            background-image: url('https://www.musora.com/musora-cdn/image/https://d2vyvo0tyx8ig5.cloudfront.net/sales/2023/devices-icons.svg');
+            background-size: 31px;
+            width: 31px;
+            @include media-breakpoint-up(sm) {
+                background-size: 52px;
+                width: 52px;
+            }
+        }
+    }
+}
+
+.btnlinks a{
+    background-color: transparent;
+    border: 2px solid var(--red);
+    border-radius: 50px;
+    color: var(--red);
+    font-family: 'Bebas Neue', cursive;
+    font-size: var(--regular-content);
+    letter-spacing: .1em;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    @include media-breakpoint-up(lg) {
+        flex-basis: auto;
+        font-size: var(--regular-content-md);
+    }
+    &:hover{
+        background-color: var(--white);
+        color: var(--red);
+        text-decoration: none;
+        transition: all 0.2s ease-in;
+    }
+}
+
+.btnlinks div:nth-child(2) a{
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.fineprint{
+    font-size: var(--small-content);
+    color: var(--light-blue);
+}
+
+.separator{
+    position: relative;
+    width: var(--width);
+    height: var(--height-mobile);
+    @include media-breakpoint-up(sm) {
+        height: var(--height);
+    }
+}
+
+.separator::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--top-color);
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+}
+
+.separator::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bottom-color);
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
